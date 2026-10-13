@@ -1,0 +1,10 @@
+build/
+outputs/
+xcelium.d/
+INCA_libs/
+*.history
+*.key
+*.log
+__pycache__/
+cadence/lab_config.tcl
+cadence/conformal.do

@@ -1,0 +1,41 @@
+{
+  "backend": "iverilog",
+  "results": [
+    {
+      "test": "tb_monitor",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "test": "tb_policy",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "test": "tb_controller",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "test": "tb_mlp",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "test": "tb_neural_adapter",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "test": "tb_features",
+      "passed": true,
+      "returncode": 0
+    },
+    {
+      "test": "tb_fsm",
+      "passed": true,
+      "returncode": 0
+    }
+  ],
+  "all_passed": true
+}

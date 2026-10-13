@@ -1,0 +1,6 @@
+{
+  "seed": 20261011,
+  "vectors": 1024,
+  "kind": "arithmetic verification fixtures; not trained models",
+  "margin_min": 256
+}
