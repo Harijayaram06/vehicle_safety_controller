@@ -53,3 +53,11 @@ The neural-top structural run uses the deliberately invalid constant ROM and can
 - DRC, LVS, GDSII, IO ring, scan/ATPG, packaging or automotive qualification.
 
 The source-level RTL and testbenches are ready for the next college-lab simulation step. The physical-design templates require the exact PDK and lab setup.
+
+## v0.4 GPDK090 flow update
+
+User-supplied Xcelium 24.09-s005 log: `tb_controller` PASS, 221 checks, 69 observed transitions, 1081 cycles. This is the only reported college-server Cadence run for this controller so far.
+
+The new Python helpers compile. Synthetic PDK fixtures verified successful preflight, missing-file rejection and synthesis/routed Conformal file generation. Tcl scripts passed completeness checks and mocked evaluation of the complete Innovus sequence, MMMC loading, stop/resume behavior, invalid-stage rejection, Genus commands and all four Tempus stage/corner variants. GDS export correctly stops when required PDK information is absent.
+
+These checks validate script structure and control flow only. Cadence commands were mocked, so no synthesis, LEC, STA, layout or GDS result is claimed. RTL is unchanged from v0.3.

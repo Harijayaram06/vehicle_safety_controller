@@ -1,6 +1,6 @@
-# Vehicle Safety Controller — RTL Development Kit v0.2
+# Vehicle Safety Controller — RTL and GPDK090 Flow Kit v0.4
 
-A student-level ASIC project: decoded-CAN request screening, deterministic priority, live safety veto, emergency override and stable recovery. Prepared for a university flow using Xcelium, Genus, Conformal, Innovus and Tempus. The exact 45 nm / 90 nm technology is not yet confirmed.
+A student-level ASIC project: decoded-CAN request screening, deterministic priority, live safety veto, emergency override and stable recovery. Prepared for a university flow using Xcelium, Genus, Conformal, Innovus and Tempus. The uploaded UART lab project identifies a GPDK090 / gsclib090 90 nm setup. Its paths have been adapted into a dedicated flow; availability on the current server must still be checked.
 
 ## What is working now
 
@@ -13,7 +13,13 @@ A student-level ASIC project: decoded-CAN request screening, deterministic prior
 
 **Default build = deterministic baseline with rate/duplicate monitoring.** The neural ROM is intentionally invalid until training is performed. With `USE_MLP=1`, the shipped ROM causes a fault hold. This prevents untrained or fabricated weights from being presented as a working classifier.
 
-**Not yet done:** training a useful model, dataset evaluation, Cadence execution, mapped PPA, Conformal proof, place-and-route, DRC/LVS or GDSII. This release completes the next RTL/verification stage and prepares the neural arithmetic/integration for the training stage.
+**Cadence evidence:** the user reported `tb_controller` passing in Xcelium 24.09 (221 checks, 69 observed transitions, 1081 cycles). The remaining six benches have not yet been reported passing in Xcelium.
+
+**Not yet done:** training a useful model, dataset evaluation, Cadence implementation execution, mapped PPA, Conformal proof, place-and-route, DRC/LVS or GDSII. This release completes the next RTL/verification stage and prepares the neural arithmetic/integration for the training stage.
+
+## New: recovered 90 nm lab flow
+
+Start with [GPDK090_LAB_RUN_GUIDE.md](docs/GPDK090_LAB_RUN_GUIDE.md). Use `cadence/gpdk090/` for the recovered lab setup; the older scripts directly under `cadence/` remain generic templates. The new flow includes synthesis, LEC generation, STA, floorplan/power, placement, CTS, routing and extraction. GDS export needs additional lab PDK information.
 
 ## Start in your college Linux terminal
 
@@ -55,7 +61,8 @@ python3 scripts/run_tests.py iverilog
 | `constraints/controller.sdc` | Initial 20 MHz clock and assumed interface budgets |
 | `reports/` | Actual local test and structural-check evidence |
 | `build/controller.vcd` | Waveform from the actual controller regression |
-| `docs/RTL_WALKTHROUGH.md` | Beginner-friendly explanation, input format and run order |
+| `docs/RTL_WALKTHROUGH.md` | Short beginner-friendly block overview and run order |
+| `docs/BEGINNER_RTL_PYTHON_GUIDE.md` | Detailed line-by-line concepts, Python/vector layout and RTL bridge |
 | `docs/CADENCE_GUIDE.md` | Tool sequence, required lab files, and template limitations |
 | `docs/IMPLEMENTATION_NOTES.md` | Contract clarifications and parameter restrictions |
 | `docs/VERIFICATION_RESULTS.md` | What passed, what was checked, and what remains unverified |

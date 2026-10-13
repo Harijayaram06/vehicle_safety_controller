@@ -8,3 +8,8 @@ INCA_libs/
 __pycache__/
 cadence/lab_config.tcl
 cadence/conformal.do
+
+cadence/gpdk090/local_config.tcl
+reports/gpdk090/
+*.enc
+*.enc.dat/
